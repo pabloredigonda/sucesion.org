@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+.Fondo_Pagina {
+	background-attachment: scroll;
+	background-color: #FFF;
+	background-image:       url(New/images/Fondo_sucesiones_Estudio_Juridico4.jpg);
+	background-repeat: repeat;
+	background-position: center bottom;
+}
+
+.Borde_Izquierdo {
+	background-image: url(old/imagenes/marcagua/marca_agua768-2.jpg);
+	background-color: #FFF;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-position: left center;
+	width: 200px;
+	height: 750px;
+	float: left;
+}

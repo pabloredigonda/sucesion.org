@@ -1,0 +1,12 @@
+version: "2"
+services:
+  brAppsPhp:
+    image: lavoweb/php-5.4
+    container_name: sucesionOrg
+    expose:
+      - "80"
+      - "9595"
+    volumes:
+      - ./public_html:/var/www/html
+    ports:
+      - 9595:80
