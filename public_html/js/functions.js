@@ -362,9 +362,9 @@
 		}
 		
 		/* Contact Map */
-		if($('#map-canvas-contact').length==1){
-			initialize('map-canvas-contact');
-		}
+		// if($('#map-canvas-contact').length==1){
+		// 	initialize('map-canvas-contact');
+		// }
 		
 		/* Quick Contact Form */
 		$( "#btn_submit" ).on( "click", function(event) {

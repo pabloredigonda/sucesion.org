@@ -109,16 +109,28 @@ jQuery(document).ready(function(){
 			.after('<img src="assets/img/ajax-loader.gif" class="loader" />')
 			.attr('disabled','disabled');
 
-		$.post(action, $('#contactform').serialize(),
-			function(data){
-				$('#message').html( data );
-				$('#message').slideDown();
-				$('#contactform img.loader').fadeOut('slow',function(){$(this).remove()});
-				$('#contactform #submit').removeAttr('disabled');
-				if(data.match('success') != null) $('#contactform').slideUp('slow');
 
-			}
-		);
+		grecaptcha.ready(function() {
+			// do request for recaptcha token
+			// response is promise with passed token
+			grecaptcha.execute('6LfClv8ZAAAAADWQtyIxL-dAz5IgkSAKbK1iw6ys', {action: 'create_comment'}).then(function(token) {
+
+				var data = $('#contactform').serialize();
+
+				data+="&token="+token;
+
+				$.post(action, data,
+					function(data){
+						$('#message').html( data );
+						$('#message').slideDown();
+						$('#contactform img.loader').fadeOut('slow',function(){$(this).remove()});
+						$('#contactform #submit').removeAttr('disabled');
+						if(data.match('success') != null) $('#contactform').slideUp('slow');
+
+					}
+				);
+			});
+		});
 
 		return false;
 
